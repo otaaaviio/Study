@@ -1,0 +1,234 @@
+.social-media {
+  display: flex;
+}
+
+* {
+  font-family: "Comic Neue";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(#0d000e, #200030);
+  color: #777;
+}
+body a {
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.4s;
+}
+body ul {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1170px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+.header-brand {
+  color: #FFF;
+  font-size: 4rem;
+}
+.header-navbar ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-navbar ul li {
+  margin: 0 1rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.header-navbar ul li .active {
+  font-weight: bold;
+  color: #610092;
+  font-size: 1rem;
+}
+.header-navbar ul li a:hover {
+  color: #610092;
+}
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1170px;
+  padding: 1.5rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+.gallery-card {
+  border: 3px solid #610092;
+  border-radius: 3rem;
+  width: 31%;
+  height: 540px;
+  margin-block: 4%;
+  flex-direction: column;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-card-title {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.gallery-card-btn {
+  padding: 0.6rem 2rem;
+  border: 2px solid #FFF;
+  border-radius: 0.8rem;
+}
+.gallery-card-btn:hover {
+  background-color: #FFF;
+  color: #0d000e;
+}
+.gallery #card-1 {
+  background-image: url("../img/above.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-1:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/above.jpg");
+}
+.gallery #card-2 {
+  background-image: url("../img/borealis.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-2:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/borealis.jpg");
+}
+.gallery #card-3 {
+  background-image: url("../img/arcade.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-3:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/arcade.jpg");
+}
+.gallery #card-4 {
+  background-image: url("../img/animais.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-4:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/animais.jpg");
+}
+.gallery #card-6 {
+  background-image: url("../img/earth.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-6:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/earth.jpg");
+}
+.gallery #card-7 {
+  background-image: url("../img/fisheye.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-7:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/fisheye.jpg");
+}
+.gallery #card-8 {
+  background-image: url("../img/grid.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-8:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/grid.jpg");
+}
+.gallery #card-9 {
+  background-image: url("../img/soccer.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-9:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/soccer.jpg");
+}
+.gallery #card-5 {
+  background-image: url("../img/curiosity.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(90%);
+  transition: 0.6s;
+}
+.gallery #card-5:hover {
+  background-size: 110%;
+  filter: grayscale(0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/curiosity.jpg");
+}
+
+footer {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+footer p {
+  text-align: center;
+}
+footer p span {
+  font-weight: bold;
+}
+footer .social-media {
+  justify-content: space-around;
+}
+footer .social-media ul {
+  display: flex;
+}
+footer .social-media ul li {
+  padding: 1rem;
+}
+footer .social-media ul li a:hover {
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,130 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family: 'Comic Neue'
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    background: linear-gradient(variables.$bg-color, variables.$secundary-color)
+    color: variables.$text-color
+
+    a
+        color: variables.$primary-color
+        text-decoration: none
+        transition: .4s
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-around
+    @include mixins.container
+
+    &-brand
+        color: variables.$primary-color
+        font-size: 4rem
+
+    &-navbar
+
+        ul 
+            height: 100%
+            @include mixins.flex-center
+
+            li
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: 0.8rem
+
+                .active
+                    font-weight: bold
+                    color: variables.$terciary-color
+                    font-size: 1rem
+
+                a
+                    &:hover
+                        color: variables.$terciary-color
+
+.gallery
+    @include mixins.flex-center
+    @include mixins.container
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 0
+
+    &-card
+        border: 3px solid variables.$terciary-color
+        border-radius: 3rem
+        width: 31%
+        height: 540px
+        margin-block: 4%
+        flex-direction: column
+        color: variables.$primary-color
+        @include mixins.flex-center
+
+        &-title
+            font-size: 2rem
+            font-weight: 300
+            margin-bottom: 1rem
+
+        &-btn
+            padding: .6rem 2rem
+            border: 2px solid variables.$primary-color
+            border-radius: .8rem
+
+            &:hover
+                background-color: variables.$primary-color
+                color: variables.$bg-color
+
+    #card-1
+        @include mixins.bg-img('above.jpg')
+
+    #card-2
+        @include mixins.bg-img('borealis.jpg')
+
+    #card-3
+        @include mixins.bg-img('arcade.jpg')
+
+    #card-4
+        @include mixins.bg-img('animais.jpg')
+
+    #card-6
+        @include mixins.bg-img('earth.jpg')
+
+    #card-7
+        @include mixins.bg-img('fisheye.jpg')
+
+    #card-8
+        @include mixins.bg-img('grid.jpg')
+
+    #card-9
+        @include mixins.bg-img('soccer.jpg')
+
+    #card-5
+        @include mixins.bg-img('curiosity.jpg')
+
+footer
+    padding-bottom: 2rem
+    padding-top: 2rem
+
+    p
+        text-align: center
+
+        span
+            font-weight: bold
+
+    .social-media
+        justify-content: space-around
+        ul
+            display: flex
+
+            li
+                padding: 1rem
+
+                a
+                    &:hover
+                        font-size: 1.5rem
+

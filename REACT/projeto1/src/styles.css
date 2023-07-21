@@ -1,0 +1,47 @@
+body {
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.square {
+    display: flex-row;
+    margin: 0px;
+    height: 80px;
+    width: 80px;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid #fff;
+}
+
+.board {
+    max-height: 240px;
+    max-width: 240px;
+}
+
+.game {
+    display: flex;
+}
+
+ol {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 1.5px;
+}
+
+.winning {
+    display: flex-row;
+    margin: 0px;
+    height: 80px;
+    width: 80px;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid #fff;
+    background-color: rgb(165, 165, 10);
+}

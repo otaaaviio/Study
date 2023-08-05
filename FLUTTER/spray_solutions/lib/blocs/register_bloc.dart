@@ -13,7 +13,17 @@ class _RegisterBlocState extends State<RegisterBloc> {
   String confirmPassword = '';
   bool showPassword = false;
   bool showPassword_2 = false;
-  
+
+  bool isValidEmail(String email) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
+  }
+
+  bool isValidPassword(String password, String confirmPassword) {
+    if (confirmPassword != password) return false;
+    return password.length >= 6;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -86,9 +96,6 @@ class _RegisterBlocState extends State<RegisterBloc> {
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('/register');
-            },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.green.shade900,
@@ -97,6 +104,12 @@ class _RegisterBlocState extends State<RegisterBloc> {
               padding: EdgeInsets.only(left: 25, right: 25, bottom: 1),
               child: Text('Cadastrar'),
             ),
+            onPressed: () {
+              if (isValidEmail(email) &&
+                  isValidPassword(password, confirmPassword)) {
+                Navigator.of(context).pushNamed('/register');
+              }
+            },
           ),
         ),
       ],

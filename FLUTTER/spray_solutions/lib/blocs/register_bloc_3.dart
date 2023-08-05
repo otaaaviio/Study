@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spray_solutions/widgtes/input_register.dart';
-
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:spray_solutions/widgtes/inputs.dart';
 import '../widgtes/button.dart';
 
 class RegisterBloc3 extends StatefulWidget {
@@ -12,6 +12,12 @@ class RegisterBloc3 extends StatefulWidget {
 }
 
 class _RegisterBloc3State extends State<RegisterBloc3> {
+  var maskDDD =
+      MaskTextInputFormatter(mask: '##', filter: {'#': RegExp(r"^[0-9]+$")});
+
+  var maskCel = MaskTextInputFormatter(
+      mask: '# ####-####', filter: {'#': RegExp(r"^[0-9]+$")});
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -30,33 +36,21 @@ class _RegisterBloc3State extends State<RegisterBloc3> {
             ),
             Row(
               children: [
-                Input(onChanged: (value) {}, labelText: '', width: 50),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10, top: 10),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 80,
-                    height: 45,
-                    child: TextField(
-                      onChanged: (value) {},
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.phone_enabled),
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.green.shade900, width: 2)),
-                        fillColor: Colors.blue.shade50,
-                        labelText: '9 9999 9999',
-                        contentPadding: const EdgeInsets.only(left: 15),
-                        labelStyle: const TextStyle(fontSize: 10),
-                        border: const OutlineInputBorder(),
-                      ),
-                    ),
-                  ),
-                ),
+                InputMask(
+                    onChanged: (value) {},
+                    labelText: '',
+                    width: 50,
+                    mask: maskDDD),
+                InputMask(
+                    onChanged: (value) {},
+                    labelText: '9 9999 9999',
+                    width: screenWidth - 90,
+                    mask: maskCel)
               ],
             ),
             Container(
-              constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height - 204),
+              constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height - 204),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -73,7 +67,8 @@ class _RegisterBloc3State extends State<RegisterBloc3> {
                     width: screenWidth / 2 - 10,
                     height: 45,
                     onChanged: () {
-                      Navigator.of(context).pushReplacementNamed('/sucessRegister');
+                      Navigator.of(context)
+                          .pushReplacementNamed('/sucessRegister');
                     },
                     text: 'Próximo',
                   ),

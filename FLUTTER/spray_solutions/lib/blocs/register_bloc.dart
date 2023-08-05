@@ -105,8 +105,15 @@ class _RegisterBlocState extends State<RegisterBloc> {
               child: Text('Cadastrar'),
             ),
             onPressed: () {
-              if (isValidEmail(email) &&
-                  isValidPassword(password, confirmPassword)) {
+              if (!isValidEmail(email)) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Email inválido.')),
+                );
+              } else if (!isValidPassword(password, confirmPassword)) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Senha inválida.')),
+                );
+              } else {
                 Navigator.of(context).pushNamed('/register');
               }
             },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spray_solutions/widgtes/button.dart';
-
-import '../widgtes/input_register.dart';
+import 'dart:core';
+import '../widgtes/inputs.dart';
 
 class RegisterBloc1 extends StatefulWidget {
   final Function(int) onChanged;
@@ -14,6 +14,7 @@ class RegisterBloc1 extends StatefulWidget {
 class RegisterBloc1State extends State<RegisterBloc1> {
   String name = '';
   String lastName = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,20 +30,22 @@ class RegisterBloc1State extends State<RegisterBloc1> {
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           ),
         ),
-        Input(
-            onChanged: (value) {
-              setState(() {
-                name = value;
-              });
-            },
-            labelText: 'Qual seu nome?'),
-        Input(
+        InputDefault(
+          onChanged: (value) {
+            setState(() {
+              name = value;
+            });
+          },
+          labelText: 'Qual seu nome?',
+        ),
+        InputDefault(
             onChanged: (value) {
               setState(() {
                 lastName = value;
               });
             },
-            labelText: ('E o seu sobrenome?')),
+            labelText: ('E o seu sobrenome?'),
+            ),
         Container(height: MediaQuery.of(context).size.height - 294),
         ButtonRegister(
           width: screenWidth - 10,

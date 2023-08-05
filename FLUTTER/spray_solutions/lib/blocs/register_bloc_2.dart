@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spray_solutions/widgtes/input_register.dart';
-
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:spray_solutions/widgtes/inputs.dart';
 import '../widgtes/button.dart';
 
 class RegisterBloc2 extends StatefulWidget {
@@ -12,6 +12,11 @@ class RegisterBloc2 extends StatefulWidget {
 }
 
 class RegisterBloc2State extends State<RegisterBloc2> {
+  var maskCEP = MaskTextInputFormatter(
+      mask: '#####-###',
+      filter: {"#": RegExp(r'[0-9]')},
+      type: MaskAutoCompletionType.lazy);
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -28,29 +33,50 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
             ),
-            Input(onChanged: (text) {}, labelText: 'CEP'),
-            Input(onChanged: (text) {}, labelText: 'Rua'),
+            InputMask(
+              onChanged: (text) {},
+              labelText: 'CEP',
+              mask: maskCEP
+            ),
+            InputDefault(
+              onChanged: (text) {},
+              labelText: 'Rua',
+            ),
             Row(
               children: [
-                Input(onChanged: (text) {}, labelText: 'N°', width: 100),
-                Input(
-                    onChanged: (text) {},
-                    labelText: 'Bairro',
-                    width: screenWidth - 140),
+                InputDigits(
+                  onChanged: (text) {},
+                  labelText: 'N°',
+                  width: 100,
+                ),
+                InputDefault(
+                  onChanged: (text) {},
+                  labelText: 'Bairro',
+                  width: screenWidth - 140,
+                ),
               ],
             ),
-            Input(onChanged: (text) {}, labelText: 'Complemento'),
+            InputDefault(
+              onChanged: (text) {},
+              labelText: 'Complemento',
+            ),
             Row(
               children: [
-                Input(onChanged: (text) {}, labelText: 'Cidade', width: 150),
-                Input(
-                    onChanged: (text) {},
-                    labelText: 'Estado',
-                    width: screenWidth - 190),
+                InputDefault(
+                  onChanged: (text) {},
+                  labelText: 'Cidade',
+                  width: 150,
+                ),
+                InputDefault(
+                  onChanged: (text) {},
+                  labelText: 'Estado',
+                  width: screenWidth - 190,
+                ),
               ],
             ),
             Container(
-              constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height - 424),
+              constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height - 424),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

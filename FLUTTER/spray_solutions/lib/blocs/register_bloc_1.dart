@@ -5,7 +5,8 @@ import '../widgtes/inputs.dart';
 
 class RegisterBloc1 extends StatefulWidget {
   final Function(int) onChanged;
-  const RegisterBloc1({super.key, required this.onChanged});
+  final Function(String, String) onNameAndLastNameChanged;
+  const RegisterBloc1({super.key, required this.onChanged, required this.onNameAndLastNameChanged});
 
   @override
   State<RegisterBloc1> createState() => RegisterBloc1State();
@@ -34,6 +35,7 @@ class RegisterBloc1State extends State<RegisterBloc1> {
           onChanged: (value) {
             setState(() {
               name = value;
+              widget.onNameAndLastNameChanged(name, lastName);
             });
           },
           labelText: 'Qual seu nome?',
@@ -42,6 +44,7 @@ class RegisterBloc1State extends State<RegisterBloc1> {
             onChanged: (value) {
               setState(() {
                 lastName = value;
+                widget.onNameAndLastNameChanged(name, lastName);
               });
             },
             labelText: ('E o seu sobrenome?'),

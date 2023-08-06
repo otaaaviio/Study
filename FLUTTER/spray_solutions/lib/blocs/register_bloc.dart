@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/register_screen.dart';
+
 class RegisterBloc extends StatefulWidget {
   const RegisterBloc({super.key});
 
@@ -114,8 +116,14 @@ class _RegisterBlocState extends State<RegisterBloc> {
                   const SnackBar(content: Text('Senha inválida.')),
                 );
               } else {
-                
-                Navigator.of(context).pushNamed('/register');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => RegisterPage(
+                      email: email,
+                      password: password,
+                    ),
+                  ),
+                );
               }
             },
           ),

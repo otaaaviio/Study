@@ -38,7 +38,7 @@ class _RegisterBloc3State extends State<RegisterBloc3> {
               children: [
                 InputMask(
                     onChanged: (value) {},
-                    labelText: '',
+                    labelText: 'DDD',
                     width: 50,
                     mask: maskDDD),
                 InputMask(

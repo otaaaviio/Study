@@ -4,8 +4,8 @@ import '../blocs/register_bloc_2.dart';
 import '../blocs/register_bloc_3.dart';
 
 class RegisterPage extends StatefulWidget {
-  final String ?email;
-  final String ?password;
+  final String? email;
+  final String? password;
   const RegisterPage({super.key, this.email, this.password});
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -15,6 +15,7 @@ class _RegisterPageState extends State<RegisterPage> {
   int ref = 1;
   late String name;
   late String lastName;
+  Map<String, dynamic> locationData = {};
 
   Widget _select({required int page}) {
     return AnimatedContainer(
@@ -37,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ref = page;
           });
         },
-        onNameAndLastNameChanged: (name, lastName) { 
+        onNameAndLastNameChanged: (name, lastName) {
           setState(() {
             this.name = name;
             this.lastName = lastName;
@@ -48,6 +49,11 @@ class _RegisterPageState extends State<RegisterPage> {
         onChanged: (page) {
           setState(() {
             ref = page;
+          });
+        },
+        onLocationChanged: (location) {
+          setState(() {
+            locationData = location;
           });
         },
       ),
@@ -66,7 +72,10 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             color: Colors.green.shade900,
           ),
-          TextButton(onPressed: () {print(name);print(lastName);}, child: Text('aaa')),
+          TextButton(
+              onPressed: () {
+              },
+              child: Text('aaa')),
           Positioned(
             bottom: 0,
             right: 0,

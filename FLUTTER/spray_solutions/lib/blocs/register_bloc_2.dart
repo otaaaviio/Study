@@ -5,13 +5,25 @@ import '../widgtes/button.dart';
 
 class RegisterBloc2 extends StatefulWidget {
   final Function(int) onChanged;
-  const RegisterBloc2({super.key, required this.onChanged});
+  final Function(Map<String, dynamic>) onLocationChanged;
+  const RegisterBloc2(
+      {super.key, required this.onChanged, required this.onLocationChanged});
 
   @override
   State<RegisterBloc2> createState() => RegisterBloc2State();
 }
 
 class RegisterBloc2State extends State<RegisterBloc2> {
+  Map<String, dynamic> location = {
+    'cep': '',
+    'rua': '',
+    'numero': '',
+    'bairro': '',
+    'complemento': '',
+    'cidade': '',
+    'estado': '',
+  };
+
   var maskCEP = MaskTextInputFormatter(
       mask: '#####-###',
       filter: {"#": RegExp(r'[0-9]')},
@@ -34,41 +46,61 @@ class RegisterBloc2State extends State<RegisterBloc2> {
               ),
             ),
             InputMask(
-              onChanged: (text) {},
-              labelText: 'CEP',
-              mask: maskCEP
-            ),
+                onChanged: (value) {
+                  location['cep'] = value;
+                  widget.onLocationChanged(location);
+                },
+                labelText: 'CEP',
+                mask: maskCEP),
             InputDefault(
-              onChanged: (text) {},
+              onChanged: (value) {
+                location['rua'] = value;
+                widget.onLocationChanged(location);
+              },
               labelText: 'Rua',
             ),
             Row(
               children: [
                 InputDigits(
-                  onChanged: (text) {},
+                  onChanged: (value) {
+                    location['numero'] = value;
+                    widget.onLocationChanged(location);
+                  },
                   labelText: 'N°',
                   width: 100,
                 ),
                 InputDefault(
-                  onChanged: (text) {},
+                  onChanged: (value) {
+                    location['bairro'] = value;
+                    widget.onLocationChanged(location);
+                  },
                   labelText: 'Bairro',
                   width: screenWidth - 140,
                 ),
               ],
             ),
             InputDefault(
-              onChanged: (text) {},
+              onChanged: (value) {
+                location['complemento'] = value;
+                widget.onLocationChanged(location);
+              },
               labelText: 'Complemento',
             ),
             Row(
               children: [
                 InputDefault(
-                  onChanged: (text) {},
+                  onChanged: (value) {
+                    location['cidade'] = value;
+                    widget.onLocationChanged(location);
+                  },
                   labelText: 'Cidade',
                   width: 150,
                 ),
                 InputDefault(
-                  onChanged: (text) {},
+                  onChanged: (value) {
+                    location['estado'] = value;
+                    widget.onLocationChanged(location);
+                  },
                   labelText: 'Estado',
                   width: screenWidth - 190,
                 ),

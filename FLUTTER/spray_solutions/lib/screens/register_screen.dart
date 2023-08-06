@@ -25,7 +25,6 @@ class _RegisterPageState extends State<RegisterPage> {
         ));
   }
 
-  
   @override
   Widget build(BuildContext context) {
     final List<Widget> registerPages = [

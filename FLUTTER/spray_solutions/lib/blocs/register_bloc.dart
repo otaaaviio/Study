@@ -114,6 +114,7 @@ class _RegisterBlocState extends State<RegisterBloc> {
                   const SnackBar(content: Text('Senha inválida.')),
                 );
               } else {
+                
                 Navigator.of(context).pushNamed('/register');
               }
             },

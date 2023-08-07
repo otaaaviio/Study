@@ -5,13 +5,18 @@ import '../widgtes/button.dart';
 
 class RegisterBloc3 extends StatefulWidget {
   final Function(int) onChanged;
-  const RegisterBloc3({super.key, required this.onChanged});
+  final Function(String, String) onCelChanged;
+  const RegisterBloc3(
+      {super.key, required this.onChanged, required this.onCelChanged});
 
   @override
   State<RegisterBloc3> createState() => _RegisterBloc3State();
 }
 
 class _RegisterBloc3State extends State<RegisterBloc3> {
+  String ddd = '';
+  String cel = '';
+
   var maskDDD =
       MaskTextInputFormatter(mask: '##', filter: {'#': RegExp(r"^[0-9]+$")});
 
@@ -37,12 +42,22 @@ class _RegisterBloc3State extends State<RegisterBloc3> {
             Row(
               children: [
                 InputMask(
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      setState(() {
+                        ddd = value;
+                        widget.onCelChanged(ddd, cel);
+                      });
+                    },
                     labelText: 'DDD',
                     width: 50,
                     mask: maskDDD),
                 InputMask(
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      setState(() {
+                        cel = value;
+                        widget.onCelChanged(ddd, cel);
+                      });
+                    },
                     labelText: '9 9999 9999',
                     width: screenWidth - 90,
                     mask: maskCel)
@@ -67,8 +82,15 @@ class _RegisterBloc3State extends State<RegisterBloc3> {
                     width: screenWidth / 2 - 10,
                     height: 45,
                     onChanged: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed('/sucessRegister');
+                      if (cel.length >= 11 && ddd.length >= 2) {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/sucessRegister');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Complete todos os campos.')),
+                        );
+                      }
                     },
                     text: 'Próximo',
                   ),

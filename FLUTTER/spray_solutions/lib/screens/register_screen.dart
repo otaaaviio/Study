@@ -13,9 +13,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   int ref = 1;
-  late String name;
-  late String lastName;
+  String name = '';
+  String lastName = '';
+  String profession = '';
   Map<String, dynamic> locationData = {};
+  String ddd = '';
+  String cel = '';
 
   Widget _select({required int page}) {
     return AnimatedContainer(
@@ -38,10 +41,11 @@ class _RegisterPageState extends State<RegisterPage> {
             ref = page;
           });
         },
-        onNameAndLastNameChanged: (name, lastName) {
+        onNameAndProfessionChanged: (name, lastName, profession) {
           setState(() {
             this.name = name;
             this.lastName = lastName;
+            this.profession = profession;
           });
         },
       ),
@@ -63,8 +67,17 @@ class _RegisterPageState extends State<RegisterPage> {
             ref = page;
           });
         },
+        onCelChanged: (ddd, cel) {
+          setState(() {
+            this.ddd = ddd;
+            this.cel = cel;
+          });
+        }
       ),
     ];
+
+    name = '$name $lastName';
+    cel = '$ddd $cel';
 
     return Scaffold(
       body: Stack(
@@ -72,10 +85,9 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             color: Colors.green.shade900,
           ),
-          TextButton(
-              onPressed: () {
-              },
-              child: Text('aaa')),
+          TextButton(onPressed: () {
+            print(cel.length);
+          }, child: const Text('aaa')),
           Positioned(
             bottom: 0,
             right: 0,

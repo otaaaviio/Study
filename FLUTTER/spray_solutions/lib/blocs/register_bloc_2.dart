@@ -98,8 +98,7 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                 ),
                 InputDefault(
                   onChanged: (value) {
-                    location['estado'] = value;
-                    widget.onLocationChanged(location);
+                    
                   },
                   labelText: 'Estado',
                   width: screenWidth - 190,

@@ -61,19 +61,16 @@ class _RegisterPageState extends State<RegisterPage> {
           });
         },
       ),
-      RegisterBloc3(
-        onChanged: (page) {
-          setState(() {
-            ref = page;
-          });
-        },
-        onCelChanged: (ddd, cel) {
-          setState(() {
-            this.ddd = ddd;
-            this.cel = cel;
-          });
-        }
-      ),
+      RegisterBloc3(onChanged: (page) {
+        setState(() {
+          ref = page;
+        });
+      }, onCelChanged: (ddd, cel) {
+        setState(() {
+          this.ddd = ddd;
+          this.cel = cel;
+        });
+      }),
     ];
 
     name = '$name $lastName';
@@ -85,9 +82,6 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             color: Colors.green.shade900,
           ),
-          TextButton(onPressed: () {
-            print(cel.length);
-          }, child: const Text('aaa')),
           Positioned(
             bottom: 0,
             right: 0,

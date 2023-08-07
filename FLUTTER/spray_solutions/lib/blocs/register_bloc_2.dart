@@ -158,7 +158,7 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                 location['complemento'] = value;
                 widget.onLocationChanged(location);
               },
-              labelText: 'Complemento',
+              labelText: 'Complemento (opcional)',
             ),
             Row(
               children: [
@@ -201,7 +201,16 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                     width: screenWidth / 2 - 10,
                     height: 45,
                     onChanged: () {
-                      widget.onChanged(3);
+                      if (location['numero'] == '' &&
+                          location['cidade'] == '') {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content:
+                                  Text('Preencha os campos obrigatórios.')),
+                        );
+                      } else {
+                        widget.onChanged(3);
+                      }
                     },
                     text: 'Próximo',
                   ),

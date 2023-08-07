@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:spray_solutions/widgtes/inputs.dart';
 import '../widgtes/button.dart';
+import 'package:search_cep/search_cep.dart';
 
 class RegisterBloc2 extends StatefulWidget {
   final Function(int) onChanged;
@@ -25,7 +26,7 @@ class RegisterBloc2State extends State<RegisterBloc2> {
   };
 
   var maskCEP = MaskTextInputFormatter(
-      mask: '#####-###',
+      mask: '########',
       filter: {"#": RegExp(r'[0-9]')},
       type: MaskAutoCompletionType.lazy);
 
@@ -46,18 +47,50 @@ class RegisterBloc2State extends State<RegisterBloc2> {
               ),
             ),
             InputMask(
-                onChanged: (value) {
-                  location['cep'] = value;
-                  widget.onLocationChanged(location);
-                },
-                labelText: 'CEP',
-                mask: maskCEP),
-            InputDefault(
+              onChanged: (value) async {
+                location['cep'] = value;
+
+                if (value.length == 8) {
+                  final viaCep = PostmonSearchCep();
+
+                  try {
+                    final result = await viaCep.searchInfoByCep(cep: value);
+
+                    String? rua =
+                        result.fold((l) => 'Erro', (info) => info.logradouro);
+                    String? numero =
+                        result.fold((l) => 'Erro', (info) => info.logradouro);
+                    String? bairro =
+                        result.fold((l) => 'Erro', (info) => info.bairro);
+                    String? cidade =
+                        result.fold((l) => 'Erro', (info) => info.cidade);
+                    String? estado =
+                        result.fold((l) => 'Erro', (info) => info.estado);
+
+                    setState(() {
+                      location['rua'] = rua;
+                      location['numero'] = numero;
+                      location['bairro'] = bairro;
+                      location['cidade'] = cidade;
+                      location['estado'] = estado;
+                    });
+
+                    widget.onLocationChanged(location);
+                  } catch (e) {
+                    print(e);
+                  }
+                }
+              },
+              labelText: 'CEP',
+              mask: maskCEP,
+            ),
+            Inputtest(
               onChanged: (value) {
                 location['rua'] = value;
                 widget.onLocationChanged(location);
               },
               labelText: 'Rua',
+              value: location['rua'],
             ),
             Row(
               children: [
@@ -98,7 +131,8 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                 ),
                 InputDefault(
                   onChanged: (value) {
-                    
+                    location['estado'] = value;
+                    widget.onLocationChanged(location);
                   },
                   labelText: 'Estado',
                   width: screenWidth - 190,

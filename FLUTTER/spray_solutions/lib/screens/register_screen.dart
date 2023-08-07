@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             color: Colors.green.shade900,
           ),
-          //TextButton(onPressed: () {print(locationData);}, child: Text('aaa')),
+          //TextButton(onPressed: () {print(name);}, child: Text('aaa')),
           Positioned(
             bottom: 0,
             right: 0,

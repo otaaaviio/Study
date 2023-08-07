@@ -4,6 +4,46 @@ import 'package:spray_solutions/widgtes/inputs.dart';
 import '../widgtes/button.dart';
 import 'package:search_cep/search_cep.dart';
 
+class InputCEP extends StatelessWidget {
+  final String labelText;
+  final Function(String) onChanged;
+  final double? width;
+  final String value;
+
+  const InputCEP({
+    super.key,
+    required this.onChanged,
+    required this.labelText,
+    this.width,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+      child: SizedBox(
+        width: width,
+        height: 45,
+        child: TextField(
+          onChanged: onChanged,
+          controller: TextEditingController(text: value),
+          decoration: InputDecoration(
+            filled: true,
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.green.shade900, width: 2)),
+            fillColor: Colors.blue.shade50,
+            labelText: labelText,
+            contentPadding: const EdgeInsets.only(left: 15),
+            labelStyle: const TextStyle(fontSize: 10),
+            border: const OutlineInputBorder(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class RegisterBloc2 extends StatefulWidget {
   final Function(int) onChanged;
   final Function(Map<String, dynamic>) onLocationChanged;
@@ -57,15 +97,15 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                     final result = await viaCep.searchInfoByCep(cep: value);
 
                     String? rua =
-                        result.fold((l) => 'Erro', (info) => info.logradouro);
+                        result.fold((l) => '', (info) => info.logradouro);
                     String? numero =
-                        result.fold((l) => 'Erro', (info) => info.logradouro);
+                        result.fold((l) => '', (info) => info.logradouro);
                     String? bairro =
-                        result.fold((l) => 'Erro', (info) => info.bairro);
+                        result.fold((l) => '', (info) => info.bairro);
                     String? cidade =
-                        result.fold((l) => 'Erro', (info) => info.cidade);
+                        result.fold((l) => '', (info) => info.cidade);
                     String? estado =
-                        result.fold((l) => 'Erro', (info) => info.estado);
+                        result.fold((l) => '', (info) => info.estado);
 
                     setState(() {
                       location['rua'] = rua;
@@ -84,7 +124,7 @@ class RegisterBloc2State extends State<RegisterBloc2> {
               labelText: 'CEP',
               mask: maskCEP,
             ),
-            Inputtest(
+            InputCEP(
               onChanged: (value) {
                 location['rua'] = value;
                 widget.onLocationChanged(location);
@@ -102,13 +142,14 @@ class RegisterBloc2State extends State<RegisterBloc2> {
                   labelText: 'N°',
                   width: 100,
                 ),
-                InputDefault(
+                InputCEP(
                   onChanged: (value) {
                     location['bairro'] = value;
                     widget.onLocationChanged(location);
                   },
                   labelText: 'Bairro',
                   width: screenWidth - 140,
+                  value: location['bairro'],
                 ),
               ],
             ),
@@ -121,21 +162,23 @@ class RegisterBloc2State extends State<RegisterBloc2> {
             ),
             Row(
               children: [
-                InputDefault(
+                InputCEP(
                   onChanged: (value) {
                     location['cidade'] = value;
                     widget.onLocationChanged(location);
                   },
                   labelText: 'Cidade',
                   width: 150,
+                  value: location['cidade'],
                 ),
-                InputDefault(
+                InputCEP(
                   onChanged: (value) {
                     location['estado'] = value;
                     widget.onLocationChanged(location);
                   },
                   labelText: 'Estado',
                   width: screenWidth - 190,
+                  value: location['estado'],
                 ),
               ],
             ),

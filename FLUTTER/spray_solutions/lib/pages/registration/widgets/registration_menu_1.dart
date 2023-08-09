@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spray_solutions/widgtes/button.dart';
+import 'package:spray_solutions/widgets/button.dart';
 import 'dart:core';
-import '../widgtes/inputs.dart';
+
+import '../../../widgets/inputs.dart';
 
 class RegisterBloc1 extends StatefulWidget {
   final Function(int) onChanged;

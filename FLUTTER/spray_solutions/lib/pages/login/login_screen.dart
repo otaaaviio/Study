@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spray_solutions/blocs/login_bloc.dart';
-import 'package:spray_solutions/blocs/register_bloc.dart';
+import 'package:spray_solutions/pages/login/widgets/login_menu.dart';
+import 'package:spray_solutions/pages/login/widgets/register_menu.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

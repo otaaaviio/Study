@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../blocs/register_bloc_1.dart';
-import '../blocs/register_bloc_2.dart';
-import '../blocs/register_bloc_3.dart';
+import 'package:spray_solutions/pages/registration/widgets/registration_menu_1.dart';
+import 'package:spray_solutions/pages/registration/widgets/registration_menu_2.dart';
+import 'package:spray_solutions/pages/registration/widgets/registration_menu_3.dart';
 
 class RegisterPage extends StatefulWidget {
   final String? email;

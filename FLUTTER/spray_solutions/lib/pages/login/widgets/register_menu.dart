@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/register_screen.dart';
+import '../../registration/register_screen.dart';
+
 
 class RegisterBloc extends StatefulWidget {
   const RegisterBloc({super.key});

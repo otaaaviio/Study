@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:spray_solutions/widgtes/inputs.dart';
-import '../widgtes/button.dart';
+import 'package:spray_solutions/widgets/inputs.dart';
+import '../../../widgets/button.dart';
 
 class RegisterBloc3 extends StatefulWidget {
   final Function(int) onChanged;

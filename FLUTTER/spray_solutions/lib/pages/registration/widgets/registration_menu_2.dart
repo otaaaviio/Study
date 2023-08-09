@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:spray_solutions/widgtes/inputs.dart';
-import '../widgtes/button.dart';
+import 'package:spray_solutions/widgets/inputs.dart';
 import 'package:search_cep/search_cep.dart';
+
+import '../../../widgets/button.dart';
 
 class InputCEP extends StatelessWidget {
   final String labelText;

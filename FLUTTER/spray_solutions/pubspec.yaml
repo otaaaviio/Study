@@ -64,6 +64,8 @@ flutter:
   assets:
   - assets/images/Icon-192.png
   - assets/images/spraySolutions.png
+  - assets/images/icon-profile.png
+  - assets/images/icon-home.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

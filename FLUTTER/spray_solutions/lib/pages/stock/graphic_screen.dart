@@ -1,12 +1,12 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ProductData {
   final String product;
   final int value;
+  final String description;
 
-  ProductData(this.product, this.value);
+  ProductData(this.product, this.value, this.description);
 }
 
 class GraphicScreen extends StatefulWidget {
@@ -18,11 +18,11 @@ class GraphicScreen extends StatefulWidget {
 
 class _GraphicScreenState extends State<GraphicScreen> {
   final List<ProductData> data = [
-    ProductData('Produto A', 30),
-    ProductData('Produto B', 10),
-    ProductData('Produto C', 60),
-    ProductData('Produto D', 60),
-    ProductData('Produto E', 60),
+    ProductData('Produto A', 30, 'breve descrição'),
+    ProductData('Produto B', 10, 'breve descrição'),
+    ProductData('Produto C', 60, 'breve descrição'),
+    ProductData('Produto D', 60, 'breve descrição'),
+    ProductData('Produto E', 60, 'breve descrição'),
   ];
 
   final List<int> colors = [
@@ -90,23 +90,23 @@ class _GraphicScreenState extends State<GraphicScreen> {
                       painter: GraphicPainter(data, colors),
                     ),
                   ),
-                  Container(
-                    height: MediaQuery.of(context).size.height -
-                        data.length * 30 -
-                        540,
-                  ),
-                  TextButton(
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.green.shade900,
+                  Expanded(child: Container()),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: TextButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.green.shade900,
+                      ),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.only(left: 25, right: 25, bottom: 1),
+                        child: Text('Voltar'),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/tabs');
+                      },
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 25, right: 25, bottom: 1),
-                      child: Text('Voltar'),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
                   ),
                 ],
               ),

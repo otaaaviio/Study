@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/tabs',
+      initialRoute: '/',
       routes: {
         '/': (context) => const Login(),
         '/register': (context) => const RegisterPage(),

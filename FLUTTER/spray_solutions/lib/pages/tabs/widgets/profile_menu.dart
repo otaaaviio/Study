@@ -49,11 +49,24 @@ class _ProfileMenuState extends State<ProfileMenu> {
             ),
           ),
         ),
-        ButtonRegister(
-            width: MediaQuery.of(context).size.width - 20,
-            height: 50,
-            onChanged: () {},
-            text: 'Configurações')
+        Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 15.0),
+          child: ButtonRegister(
+              width: MediaQuery.of(context).size.width - 20,
+              height: 50,
+              onChanged: () {},
+              text: 'Configurações'),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 15.0),
+          child: ButtonRegister(
+              width: MediaQuery.of(context).size.width - 20,
+              height: 50,
+              onChanged: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+              text: 'Sair'),
+        )
       ],
     );
   }

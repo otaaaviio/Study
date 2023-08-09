@@ -70,7 +70,7 @@ class _LoginBlocState extends State<LoginBloc> {
             ),
             onPressed: () {
               if(email != '' && password != '') {
-                Navigator.of(context).pushReplacementNamed('/stock');
+                Navigator.of(context).pushReplacementNamed('/tabs');
               }
             },
           ),

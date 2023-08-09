@@ -61,16 +61,19 @@ class _RegisterPageState extends State<RegisterPage> {
           });
         },
       ),
-      RegisterBloc3(onChanged: (page) {
-        setState(() {
-          ref = page;
-        });
-      }, onCelChanged: (ddd, cel) {
-        setState(() {
-          this.ddd = ddd;
-          this.cel = cel;
-        });
-      }),
+      RegisterBloc3(
+        onChanged: (page) {
+          setState(() {
+            ref = page;
+          });
+        },
+        onCelChanged: (ddd, cel) {
+          setState(() {
+            this.ddd = ddd;
+            this.cel = cel;
+          });
+        },
+      ),
     ];
 
     name = '$name $lastName';

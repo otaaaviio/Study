@@ -28,7 +28,7 @@ class InputMask extends StatelessWidget {
             filled: true,
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.green.shade900, width: 2)),
-            fillColor: Colors.blue.shade50,
+            fillColor: Colors.green.shade50,
             labelText: labelText,
             contentPadding: const EdgeInsets.only(left: 15),
             labelStyle: const TextStyle(fontSize: 10),
@@ -65,7 +65,7 @@ class InputDigits extends StatelessWidget {
             filled: true,
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.green.shade900, width: 2)),
-            fillColor: Colors.blue.shade50,
+            fillColor: Colors.green.shade50,
             labelText: labelText,
             contentPadding: const EdgeInsets.only(left: 15),
             labelStyle: const TextStyle(fontSize: 10),
@@ -103,7 +103,7 @@ class InputDefault extends StatelessWidget {
             filled: true,
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.green.shade900, width: 2)),
-            fillColor: Colors.blue.shade50,
+            fillColor: Colors.green.shade50,
             labelText: labelText,
             contentPadding: const EdgeInsets.only(left: 15),
             labelStyle: const TextStyle(fontSize: 10),

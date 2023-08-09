@@ -63,7 +63,6 @@ class LoginState extends State<Login> {
           ),
           Center(
             child: Container(
-              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.0),
